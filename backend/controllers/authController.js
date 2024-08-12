@@ -54,10 +54,36 @@ export const signup = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    console.log("loginUser")
+    try{
+        const {userName, password} = req.body;
+        const user = await User.findOne({userName});
+        const isPasswordCorrect = await bcrypt.compare(password,user?.password || "");
+
+        if(!user || !isPasswordCorrect) {
+            return res.status(400).json({error: "Usuário ou senha inválido."});
+        }
+        generateTokenAndSetCookie(user._id, res);
+
+        res.status(200).json({
+            _id: user._id,
+            fullName: user.fullName,
+            userName: user.userName,
+            profilePic: user.profilePic,
+        });
+
+    }catch(error){
+        console.log("Erro ao realizar login", error.message);
+        res.status(500).json({error:"Erro interno"});
+    }
 }
 
-export const logout = async (req, res) => {
-    console.log("logoutUser")
+export const logout =  (req, res) => {
+    try{
+        res.cookie("jwt", "", {maxAge: 0})
+        res.status(200).json({message: "Logged out successfully"})
+    }catch(error){
+        console.log("Erro ao sair.", error.message);
+        res.status(500).json({error:"Erro interno"});
+    }
 }
 
