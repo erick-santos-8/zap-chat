@@ -1,5 +1,5 @@
 import User from "../models/userModel.js"
-
+import bcrypt from "bcryptjs";
 
 export const signup = async (req, res) => {
     try{
@@ -15,6 +15,8 @@ export const signup = async (req, res) => {
     }
 
     //HASH PASSWORD HERE
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     // https://avatar-placeholder.iran.liara.run/
 
@@ -24,19 +26,24 @@ export const signup = async (req, res) => {
     const newUser = new User({
         fullName,
         userName,
-        password,
+        password:hashedPassword,
         gender,
         profilePic: gender === "male"? boyProfilePic : girlProfilePic
     })
 
-    await newUser.save();
+    if(newUser){
+        //Generate JWT token here
+        await newUser.save();
 
-    res.status(201).json({
-        _id: newUser._id,
-        fullName: newUser.fullName,
-        userName:newUser.userName,
-        profilePic:newUser.profilePic
+        res.status(201).json({
+            _id: newUser._id,
+            fullName: newUser.fullName,
+            userName:newUser.userName,
+            profilePic:newUser.profilePic
     })
+    } else{
+        res.status(400).json({error: "Dados do usuário inválidos"})
+    }
 
     } catch (error) {
         console.log("Erro ao cadastrar", error.message);
