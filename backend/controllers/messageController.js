@@ -42,4 +42,24 @@ export const sendMessage = async (req, res) => {
         console.log("Erro em SendMessageController: ", error.message);
         res.status(500).json({error: "Erro interno"});
     }
+};
+
+export const getMessages = async (req, res) => {
+    try {
+        const {id:userToChatId} = req.params
+        const senderId = req.user._id;
+        const conversation = await Conversation.findOne({
+            participants: { $all: [senderId, userToChatId]},
+        }).populate("messages"); //mensagens
+
+        if(!conversation) return res.status(200).json([]);
+
+        const messages = conversation.messages;
+
+        res.status(200).json(messages);
+
+    } catch (error) {
+        console.log("Erro em SendMessageController: ", error.message);
+        res.status(500).json({error: "Erro interno"});
+    }
 }
