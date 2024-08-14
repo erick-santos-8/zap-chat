@@ -1,14 +1,15 @@
 import React from 'react'
-import SearchInput from './SearchInput'
+import SearchInput from './components/SearchInput'
 import Conversations from './components/Conversations'
+import LogoutButton from './components/LogoutButton'
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className='border-r border-slate-300 p-4 flex flex-col'>
       <SearchInput/>
       <div className='divider px-3'></div>
       <Conversations/>
-      
+      <LogoutButton/>
     </div>
   )
 }

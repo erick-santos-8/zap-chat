@@ -6,7 +6,7 @@ const Conversation = () => {
         <div className='flex gap-2 items-center hover:bg-lime-400 rounded p-2 py-1 cursor-pointer'>
             <div className='avatar online'>
                 <div className='w-12 rounded-full'>
-                    <img src="https://github.com/shadcn.png" alt="user avatar"/>
+                    <img src="https://github.com/shadcn.png" alt="user avatar" className='rounded-full'/>
                 </div>
             </div>
             <div className='flex flex-col flex-1'>
