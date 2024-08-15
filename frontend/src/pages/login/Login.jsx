@@ -6,6 +6,7 @@ import Victory from '../../assets/victory.svg';
 
 import { TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,8 +29,8 @@ const Login = () => {
             </TabsList>
               <TabsContent className='flex flex-col gap-5 mt-10' value='login'>
                 <Input
-                  placeholder="Email"
-                  type="email"
+                  placeholder="Usuário"
+                  type="userName"
                   className="rounded-full p-6"
                 />
                 <Input
@@ -39,7 +40,7 @@ const Login = () => {
                 />
                 <Button className='rounded-full p-6 bg-purple-950' >Entrar</Button>
 
-                <a className="text-purple-950 underline underline-offset-2 text-sm text-opacity-90 font-semibold cursor-pointer " href="#">Não possui conta? Crie a sua conta aqui</a>
+                <Link className="text-purple-950 underline underline-offset-2 text-sm text-opacity-90 font-semibold cursor-pointer " to="/signup">Não possui conta? Crie a sua conta aqui</Link>
               </TabsContent>
           </Tabs>
         </div>
