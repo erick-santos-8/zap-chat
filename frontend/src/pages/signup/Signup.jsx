@@ -7,6 +7,7 @@ import { TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import useSignup from "@/hooks/useSignup";
 
 
 
@@ -24,14 +25,16 @@ const Signup = () => {
   const [valueSelected, setValueSelected] = useState("");
 
 
+  const {loading, signup} = useSignup()
+
   const handleOptionChange = (e) => {
     setValueSelected(e.target.value)
     setInputs({...inputs, gender:e.target.value})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(inputs)
+    await signup(inputs)
   }
 
   return (
