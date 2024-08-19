@@ -2,7 +2,7 @@ import { Tabs } from "@/components/ui/tabs";
 import { Input } from '@/components/ui/input';
 
 import Background from "../../assets/login2.png";
-import Victory from '../../assets/victory.svg';
+import Victory from '../../assets/1f913_color.png';
 
 import { TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from "@/components/ui/button";
@@ -30,14 +30,14 @@ const Login = () => {
         <div className="flex flex-col gap-10 items-center justify-center">
           
             <div className="flex items-center justify-center">
-              <h1 className="text-5xl font-bold md:text-6xl">Login</h1>
-              <img src={Victory} alt="Emoji de vitória" className='h-[180px]' />
+              <h1 className="text-5xl font-bold md:text-6xl">Entrar</h1>
+              <img src={Victory} alt="Emoji de vitória" className='h-[150px]' />
             </div>
         <div className="flex items-center justify-center w-full">
           <Tabs defaultValue="login">
             <TabsList className="bg-transparent rounded-none w-full flex">
               <TabsTrigger value="login" className=' cursor-auto text-black text-opacity-90 border-b-2 rounded-none w-full font-bold border-b-purple-900 p-3'>
-                Entrar
+                Login
               </TabsTrigger>
             </TabsList>
             <form onSubmit={handleSubmit}>
