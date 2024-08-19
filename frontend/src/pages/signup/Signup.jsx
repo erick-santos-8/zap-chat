@@ -110,7 +110,7 @@ const Signup = () => {
                   </div>
 
                 </div>
-                <Button className='rounded-full p-6 bg-purple-950'>Criar</Button>
+                <Button className='rounded-full p-6 bg-purple-950 hover:bg-purple-900' disabled={loading}>Criar conta</Button>
 
                 <Link className="text-purple-950 underline underline-offset-2 text-sm text-opacity-90 font-semibold cursor-pointer " to="/login">Já possui conta? Entre na sua conta aqui</Link>
               </TabsContent>

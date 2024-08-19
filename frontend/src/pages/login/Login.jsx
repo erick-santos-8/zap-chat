@@ -7,10 +7,23 @@ import Victory from '../../assets/victory.svg';
 import { TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import useLogin from "@/hooks/useLogin";
 
 
 
 const Login = () => {
+
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const {loading, login} = useLogin();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(userName, password)
+  }
+
   return (
     <div className="h-[100] w-[vw] flex items-center justify-center">
       <div className="h-[85vh] bg-white border-2 border-white text-opacity-90 shadow-2xl w-[80vw] md:w-[90vw] lg:w-[70vw] xl:w-[60vw] rounded-3xl grid xl:grid-cols-2">
@@ -27,21 +40,27 @@ const Login = () => {
                 Entrar
               </TabsTrigger>
             </TabsList>
+            <form onSubmit={handleSubmit}>
               <TabsContent className='flex flex-col gap-5 mt-10' value='login'>
                 <Input
                   placeholder="Usuário"
                   type="userName"
                   className="rounded-full p-6"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
                 <Input
                   placeholder="Senha"
                   type="password"
                   className="rounded-full p-6"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button className='rounded-full p-6 bg-purple-950' >Entrar</Button>
+                <Button className='rounded-full p-6 bg-purple-950 hover:bg-purple-900' disabled={loading} >Entrar</Button>
 
                 <Link className="text-purple-950 underline underline-offset-2 text-sm text-opacity-90 font-semibold cursor-pointer " to="/signup">Não possui conta? Crie a sua conta aqui</Link>
               </TabsContent>
+            </form>
           </Tabs>
         </div>
         </div>
