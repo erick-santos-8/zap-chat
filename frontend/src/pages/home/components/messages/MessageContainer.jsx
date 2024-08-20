@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Messages from './components/Messages'
 import MessageInput from './components/MessageInput'
 import { MessageCircleHeart } from 'lucide-react'
