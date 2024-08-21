@@ -19,6 +19,6 @@ O **ZapChat** é um app de chat em tempo real que permite a comunicação entre 
 - MongoDB configurado e em execução
 
 
-### Referências e bases para o desenvolvimento
+### Referências e base para o desenvolvimento
 
 -Youtube: canais "As a programmer" e "Kishan Sheth"
