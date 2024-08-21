@@ -24,3 +24,9 @@ O **ZapChat** é um app de chat em tempo real que permite a comunicação entre 
 
    ```bash
    git clone https://github.com/seu-usuario/ChatApp.git
+
+
+### Referências e bases para o desenvolvimento
+
+-Youtube:
+   +Canais "As a programmer" e "Kishan Sheth"
