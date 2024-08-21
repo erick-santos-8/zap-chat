@@ -30,7 +30,7 @@ const Login = () => {
         <div className="flex flex-col gap-10 items-center justify-center">
           
             <div className="flex items-center justify-center">
-              <h1 className="text-5xl font-bold md:text-6xl">Entrar</h1>
+              <h1 className="text-5xl font-bold md:text-6xl">Zap!</h1>
               <img src={Victory} alt="Emoji de vitória" className='h-[150px]' />
             </div>
         <div className="flex items-center justify-center w-full">
