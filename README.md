@@ -18,13 +18,6 @@ O **ZapChat** é um app de chat em tempo real que permite a comunicação entre 
 - Node.js 
 - MongoDB configurado e em execução
 
-### Instalação
-
-1. Clone este repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/ChatApp.git
-
 
 ### Referências e bases para o desenvolvimento
 
