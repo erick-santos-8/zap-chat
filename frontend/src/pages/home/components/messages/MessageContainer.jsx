@@ -3,6 +3,7 @@ import Messages from './components/Messages'
 import MessageInput from './components/MessageInput'
 import { MessageCircleHeart } from 'lucide-react'
 import useConversation from '@/zustand/useConversation'
+import { useAuthContext } from '@/context/AuthContext'
 
 const MessageContainer = () => {
   const{selectedConversation, setSelectedConversation} = useConversation();
@@ -32,10 +33,11 @@ const MessageContainer = () => {
 export default MessageContainer
 
 const NoChatSelected = () => {
+  const {authUser} = useAuthContext()
   return (
     <div className='flex items-center justify-center w-full h-full'>
       <div className='px-4 text-center sm:text-lg md:text-xl text-black font-semibold flex flex-col items-center gap-2'>
-        <p>Bem-vindo John Doe! 👋</p>
+        <p>Bem-vindo {authUser.fullName}! 👋</p>
         <p>Selecione um chat para conversar 😀</p>
         <MessageCircleHeart className='text-3xl md:text-6xl text-center'/>
       </div>
