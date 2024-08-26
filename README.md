@@ -4,6 +4,8 @@
 
 O **ZapChat** é um app de chat em tempo real que permite a comunicação entre usuários em tempo real, com um sistema de autenticação criptografia, além de fornecer uma interface intuitiva, simples e moderna.
 
+<img src="./frontend/public/imagem_recortada.png" alt="Imagem do chat">
+
 ## Tecnologias Utilizadas
 
 - **Frontend**: React, TailwindCSS, Shadcn
