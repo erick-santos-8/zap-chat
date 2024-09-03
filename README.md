@@ -23,7 +23,6 @@ O **ZapChat** é um app de chat em tempo real que permite a comunicação entre 
 ### Uso
 
 -Clone o repositório
--Installe todas dependências necessárias
 -No terminal, digite "npm run build"
 -Após a instalação, digite "npm start" 
 
